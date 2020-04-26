@@ -19,7 +19,11 @@ class Artist:
         self.external_url = external_url
     
     def __str__(self):
-        return str(self.__dict__)
+        return 'Artist name: ' + str(self.artist_name) \
+             + '\nArtist genres: ' + str(self.genres) \
+             + '\nArtist followers: ' + str(self.followers) \
+             + '\nArtist popularity: ' + str(self.popularity) \
+             + '\n'
 
 class Track:
     ''' Our internal Track ojbect
@@ -36,7 +40,19 @@ class Track:
         self.artists = []
     
     def __str__(self):
-        return str(self.__dict__)
+        artist_names = ''
+        
+        for artist in self.artists:
+            if len(artist_names) == 0:
+                artist_names += artist.artist_name
+            else:
+                artist_names += ', ' + artist.artist_name
+        
+        return 'Track name: ' + str(self.track_name) \
+             + '\nTrack artists: ' + artist_names \
+             + '\nTrack durations (in ms): ' + str(self.duration_ms) \
+             + '\nTrack popularity: ' + str(self.popularity)  \
+             + '\n'
 
 class Playlist:
     ''' Our internal Playlist ojbect
@@ -54,7 +70,17 @@ class Playlist:
         self.tracks = []
     
     def __str__(self):
-        return str(self.__dict__)
+        track_names = ''
+        
+        for i in range(len(self.tracks)):
+            track_names += '\n  [' + str(i+1) + ']: ' + self.tracks[i].track_name
+        
+        return 'Playlist name: ' + str(self.playlist_name) \
+             + '\nPlaylist owner: ' + str(self.owner_name) \
+             + '\nPlaylist description: ' + str(self.playlist_description) \
+             + '\nPlaylist followers: ' + str(self.followers)  \
+             + '\nPlaylist tracks: ' + track_names  \
+             + '\n'
 
 
 class Twitter:
@@ -68,4 +94,6 @@ class Twitter:
         self.created_at = created_at
     
     def __str__(self):
-        return str(self.__dict__)
+        return 'Twitter user: ' + str(self.user_name) \
+             + '\nTwitter text: ' + str(self.text) \
+             + '\n'

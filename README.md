@@ -2,15 +2,19 @@
 
 This is a simple Spotify command line python program. It allows you to interact with Spotify's APIs, and view interactive graphs.
 
-### Useage
+### Environments
 
-Before running the program, make sure that you have the spotipy library. If not, run command:
-
+The CLI requires sqlite3, requests, spotipy and pandas libraries.
 ```
+pip3 sqlite3
+pip3 requests
 pip3 spotipy
+pip3 pandas
 ```
 
-It is still in development. If you want to test API and database connectivity, please uncomment according line, and run:
+### Usage
+
+If you want to test API and database connectivity, please uncomment according line, and run:
 
 ```
 python3 spotify_cli.py
